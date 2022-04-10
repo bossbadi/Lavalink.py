@@ -229,7 +229,7 @@ class Client:
         node = node or random.choice(self.node_manager.available_nodes)
         res = await self._get_request('{}/loadtracks?identifier={}'.format(node.http_uri, quote(query)),
                                       headers={'Authorization': node.password})
-        return LoadResult.from_dict(res)
+        return res
 
     async def decode_track(self, track: str, node: Node = None):
         """|coro|
